@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0px; padding: 0px;}
+    .app {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+    
+    #a { 
+      position: absolute;
+      width: 300px; 
+      height: 300px;
+      /* 第一步，制作3D视图 */
+      transform-style: preserve-3d;
+
+      /* ？？？加上perspective perspective-origin 后图形变成了梯形 */
+      /* perspective: 1000px; */
+      /* perspective-origin: center; */ 
+
+      /* 剩下的自动转换3D视图的各个面就交给了动画效果 */
+      animation: a 8s infinite cubic-bezier(.7,0,.17,1);
+      /* 手工转换调试一下 */
+      transform: rotateX(0deg) rotateY(10deg);
+    }
+    #a div { 
+      width: 100%; 
+      height: 100%;
+      position: absolute;
+      /* 子元素现在已经在3D视图中了 */
+      /* 注意：子元素先各自成角度然后用 translateZ 撑开3D空间 */
+      transform: rotateY(calc(var(--i)*90deg)) translateZ(150px);
+    }
+    @keyframes a {
+      0% {
+        transform: translateZ(-100px) rotateY(0deg);
+      }
+      25%{
+        transform: translateZ(-100px) rotateY(90deg);
+      }
+      50% {
+        transform: translateZ(-100px) rotateY(180deg);
+      }
+      75% {
+        transform: translateZ(-100px) rotateY(270deg);
+      }
+      100% {
+        transform: translateZ(-100px) rotateY(360deg);
+      }
+    }
+    .b { background-color: deeppink; }
+    .c { background-color: skyblue; }
+    .d { background-color: rgba(34, 211, 161, 0.699); }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div id="a">
+      <div class="b" style="--i: 0;"></div>
+      <div class="c" style="--i: 1;"></div>
+      <div class="d" style="--i: 2;"></div>
+    </div>
+  </div>
+</body>
+</html>
