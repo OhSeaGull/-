@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>workes</title>
+    <style>
+        * { margin: 0; padding: 0;}
+        body { display: flex; justify-content: center; align-items: center;}
+        #adaption { overflow: hidden; width: 1519px; height: 1177px;}
+        .head { padding-left: 82px; width: 100%; height: 50px; background-color: rgb(255,255,255);}
+        .head div { display: flex; justify-content: center; align-items: center; width: 146px; height: 100%; font-size: medium; color: rgb(166,166,164); float: left; transform: skew(-40deg,0deg);}
+        .head div:hover { background-color: rgb(245,108,81);}
+        .head span { display: inline-block; transform: skew(40deg,0);}
+
+        .center { display: flex; justify-content: center; align-items: center; width: 100%; height: 1020px; background-color: rgb(222,215,205);}
+        .subcenter { position: relative; width: 95%; height: 966px; background-color: rgb(232,229,222); }
+        .left { overflow: hidden; position: absolute; width: 29%; height: 950px; }
+        .headPho { display: flex; justify-content: center; align-items: center; width:430px; height: 315px; border: 3px solid rgb(232,229,222);}
+        .headPho img { width: 300px; height: 300px; border-radius: 50%;}
+        .title { display: flex; align-items: center; width: 430px; height: 50px; background-color: rgb(245,108,81); padding-left: 45px; font-size: 16px; color: rgb(249,201,189); line-height: 16px;}
+        .photos { padding-left: 50px; padding-top: 40px; height: 200px; }
+        .photos img {float: left; width: 83px; height: 78px; border: 1px solid rgb(255,255,255); }
+        .sports { padding-left: 50px;}
+        .sports input { background-color: rbg(232,229,222);}
+        .sports .checkbox { width: 16px; height: 16px; background-color: rgb(232,229,222);}
+        #right { background-color: white; width: 71%; height: 950px; position: absolute; right: 0;}
+        .front { width: 1055px; height: 120px; display: flex; justify-content: left; align-items: center; padding-left: 70px; position: relative; top: 20px;}
+        .front p { font-family: SimSun, Arial, sans-serif; font-size: 33px;} 
+        #right .main p { line-height: 2em; font-style: oblique; padding: 29px; font-size: 24px; font-family: SimSun}
+        .main img { padding-left: 25em }
+
+        .footerFo { width: auto; height: 17px; background-color: rgb(245,108,81);}
+        .footer { padding-top: 20px; height: 70px; background-color: black;}
+        .contact { text-align: center; color: rgb(245,108,81);}
+        .contact span { color: rgb(135,134,129);}
+        .class { text-align: center; color: rgb(119,118,116);}
+    </style>
+</head>
+<body>
+  <div id="adaption">
+    <div class="head">
+        <div><span>网站首页</span></div>
+        <div><span>我的爱好</span></div>
+        <div><span>我的大学</span></div>
+        <div><span>班级相册</span></div>
+        <div><span>我的梦想</span></div>
+        <div><span>我的博客</span></div>
+        <div><span>关于我</span></div>
+    </div> 
+    <div class="center">
+      <div class="subcenter">
+        <div class="left">
+            <div class="headPho">
+                <img src="./public/R-C.png">
+            </div>
+            <div class="title">最新照片</div>
+            <div class="photos">
+                <img src="./public/R-C.png" alt="">
+                <img src="./public/R-C.png" alt="">
+                <img src="./public/R-C.png" alt="">
+                <img src="./public/R-C.png" alt="">
+                <img src="./public/R-C.png" alt="">
+                <img src="./public/R-C.png" alt="">
+                <img src="./public/R-C.png" alt="">
+                <img src="./public/R-C.png" alt="">
+            </div>
+            <div class="title">小调查</div>
+            <div class="sports">
+                <span>请选择你喜欢的运动:</span> <br>
+                <input type="checkbox" class="checkbox">篮球 <br>
+                <input type="checkbox" class="checkbox">乒乓球 <br>
+                <input type="checkbox" class="checkbox">羽毛球 <br>
+                <input type="button" value="提交">
+            </div>
+        </div>
+        <div id="right">
+            <div class="front">
+                <img src="./public/微信图片_20211104192644.png" alt="">
+                <p>   《当你老了》——叶芝》</p>
+            </div><hr>
+            <div class="main">
+              <p class="cotainer">
+                &nbsp;&nbsp;&nbsp;当年华已逝，你两鹫斑白,沉沉欲睡,坐在炉边慢慢打盹，请取下我的这本诗集，请缓缴读起,如一般,你会重温，你那制蔚眼波,地们是曾经那么的深情和柔美。
+              </p>
+              <p class="cotainer">
+                &nbsp;&nbsp;&nbsp;多少人曾爱过你容光烧发的靡是魅力,爱你的倾城容颜,或是真心,或是做戏，但只有一个人!他爱的是你圣洁虔诚的心!当你洗尽铅华，伤逝红楠的老去,他也依然深爱着你!
+              </p>
+              <img src="./public/T8`P0BAV`5{GSQ~DR3VFOBG.png" alt="">
+              <p class="cotainer">
+                &nbsp;&nbsp;&nbsp;炉里的火雄温暖明亮，你轻轻低下头去,带着淡淡的蠹然，为了枯萎熄灭的爱情,喃清低语,此时他正在千山万之间独自游落,在那满天准视你的繁星后面隐起了险魔。
+              </p>
+            </div>
+        </div>
+      </div>
+    </div> 
+    <div class="footerFo"></div>
+    <div class="footer"> 
+        <p class="contact">联系我们<span> | </span>版权所有<span> | </span>管理后台</p>
+        <p class="class">版权所有@202102班</p>
+    </div>
+  </div>    
+</body>
+</html>
