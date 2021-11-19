@@ -28,6 +28,58 @@ attributed error with analyses：
 
 这个提示信息中的关键其实是倒数第二段中的 `node-sass/v4.7.2/win32-ia32-57_binding.node`，这是需要下载的文件，版本号是 `v4.7.2`，到此终于明白了其实是原因是我们使用的二进制文件的版本不对，只需要用下载（命令行或者浏览器下载均可）后重命名覆盖之前的 `win32-x64-64_binding.node`文件即可。
 
-最后的问题：如何下载指定版本的二进制文件呢？
+如何下载指定版本的二进制文件呢？
 
-`npm i node-sass --sass_binary_site=https://npm.taobao.org/mirrors/node-sass/`，最后这可以一步解决问题！
+node-sass官方github地址:[https://github.com/sass/node-sass/releases](https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fsass%2Fnode-sass%2Freleases)
+
+node-sass淘宝镜像地址：[https://npm.taobao.org/mirrors/node-sass/](https://links.jianshu.com/go?to=https%3A%2F%2Fnpm.taobao.org%2Fmirrors%2Fnode-sass%2F)
+
+##### 解决版本缺失问题：
+
+我们需要把node-sass的二进制文件下载到本地来，这个文件可以选择去官方的github上下载或者去淘宝镜像官网下载,在下载之前我们需要知道自己的电脑适合下载哪个版本的，可在终端输入以下命令来查看我们需要下载哪个版本的二进制文件
+
+```bash
+node -p "[process.platform, process.arch, process.versions.modules].join('-')"
+```
+
+这时候会弹出自己电脑的系统版本，比如我弹出了“win32-x64-48”,则代表我需要下载"**win32-x64-48_binding.node** "这个二进制文件，
+
+在安装指令后面我们还需要指定下载源。具体以 `node-sass `为例：
+
+注意：`--sass-binary-path=`等号后面跟的就是我们之前下好的 `node-sass`二进制文件，举例：系统适合 `win32-x64-48_binding.node`，那么 `--sass-binary-path=`后面跟的就是 `{node-sass_installPath}/win32-x64-48_binding.node`（特别注意，分隔符是"/"并非直接拷贝电脑上路径的那种“\”），以下是完整的安装指令：　　
+
+npm安装指令：
+
+```cpp
+npm install node-sass --save-dev --registry=http://registry.npm.taobao.org --sass-binary-path=E:/win32-x64-48_binding.node
+```
+
+yarn玩这个指令：
+
+注意:yarn与npm采用不同的方式，yarn需要先指定node-sass的二进制下载地址为我们本地下载后的那个二进制文件，这样就可以在下载二进制文件的时候不从仓库去下载而使用本地的文件安装。
+
+设置指令：
+
+```bash
+yarn config set sass-binary-path E:/win32-x64-48_binding.node
+```
+
+sass-binary-path 后面跟的东西就不再解释了，与Npm同理。
+
+然后我可以正常安装no-sass了：
+
+```csharp
+yarn add node-sass --dev 
+```
+
+安装结束后我们就可以解除之前的设置，指令：
+
+```cpp
+yarn config delete sass-binary-path
+```
+
+---
+
+#### 项目运行有可能会报错，提示找不到vendor文件目录
+
+> 在node_modules/node-sass目录下手动创建vendor文件夹，根据电脑系统在创建相应的文件夹如win32-x64-64，在node-sass官网下载相应的文件，如'win32-x64-64_binding.node'，  将文件名称改为binding.node，粘贴在win32-x64-64文件下。
